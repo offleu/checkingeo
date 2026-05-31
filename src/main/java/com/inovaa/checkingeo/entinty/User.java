@@ -28,15 +28,5 @@ public class User {
 
     private String role;
 
-    //GETTER E SETTER
-
-    public Long getId () {
-        return id;
-    }
-
-    public String getName (){
-        return name;
-    }
-
-
+    
 }
