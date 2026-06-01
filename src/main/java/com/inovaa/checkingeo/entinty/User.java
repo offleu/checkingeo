@@ -1,32 +1,47 @@
 package com.inovaa.checkingeo.entinty;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.management.relation.Role;
 
 @Entity
 @Table (name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class User {
 
+    public enum Role {
+        ADMIN,
+        VENDEDOR
+    }
+
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
+
+
     
     private Long id;
 
     private String name;
-    
+
+
+    @Column (unique = true)
     private String email;
 
     private String password;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    private Boolean ativo;
+
 
     
 }

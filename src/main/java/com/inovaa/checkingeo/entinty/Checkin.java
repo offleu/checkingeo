@@ -2,11 +2,7 @@ package com.inovaa.checkingeo.entinty;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,6 +36,9 @@ public class Checkin {
 
     private LocalDateTime dataHora;
 
+    @ManyToOne
+    @JoinColumn (name = "usuario_id")
+    private User usuario;
 
 
 
